@@ -1,0 +1,16 @@
+{
+	"name": "vue_dev",
+	"dockerComposeFile": "../compose_dev.yaml",
+	"service": "node",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"jcbuisson.vue",
+				"ms-vscode.vscode-typescript-next"
+			]
+		}
+	},
+	"shutdownAction": "stopContainer"
+}

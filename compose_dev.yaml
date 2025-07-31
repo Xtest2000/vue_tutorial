@@ -1,0 +1,18 @@
+services:
+  node:
+      image: node:24.4.1
+      extra_hosts: 
+        - "host.docker.internal:host-gateway"
+      volumes:
+        - ..:/workspaces:cached
+        - /home/ubuntu/.ssh:/tmp/.ssh:ro
+      command: >
+        sh -c "
+        mkdir -p /root/.ssh &&
+        cp -r /tmp/.ssh/* /root/.ssh &&
+        chmod 700 /root/.ssh &&
+        tail -f /dev/null
+        "
+      restart: unless-stopped
+      ports:
+        - "4080:80"
